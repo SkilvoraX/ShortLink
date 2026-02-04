@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import { Eye, EyeOff, Mail, Lock, User, UserPlus } from 'lucide-react'
-import BackGround from '../../assets/Group7.png'
+// import BackGround from '../../assets/Group7.png'
 
 
 
@@ -61,7 +61,9 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
       <div className="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 max-w-5xl w-full">
-        <div className=" text-white flex flex-col justify-center items-start p-10 space-y-6" style={{ backgroundImage: `url(${BackGround})` }}>
+        <div className=" text-white flex flex-col justify-center items-start p-10 space-y-6 bg-[#012945]" 
+        // style={{ backgroundImage: `url(${BackGround})` }}
+        >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}

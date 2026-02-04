@@ -5,7 +5,7 @@ import { ClipboardIcon, CheckIcon } from "lucide-react";
 import { useShortener } from "../hooks/useShortner";
 import { shortenUrl } from "../services/api"; 
 import Image from "../assets/Layer_1.svg";
-import BackGround from "../assets/Group7.png";
+// import BackGround from "../assets/Group7.png";
 import Logo from "../assets/Link.svg";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -75,9 +75,9 @@ export default function Home() {
   return (
     <>
     <div 
-      className="min-h-screen" 
+      className="min-h-screen bg-[#012945]" 
       style={{ 
-        backgroundImage: `url(${BackGround})`, 
+        // backgroundImage: `url(${BackGround})`, 
         backgroundRepeat: "no-repeat", 
         backgroundSize: 'cover', 
         fontFamily: "Montserrat"
