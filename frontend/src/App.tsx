@@ -1,4 +1,4 @@
-import {  useEffect } from 'react'
+import {  useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import UrlForm from './components/UrlForm'
@@ -12,7 +12,7 @@ import { useUrls } from './hooks/useUrls'
 import Home from './pages/Home'
 import { useShortener } from './hooks/useShortner'
 import { Navigate } from 'react-router-dom'
-import BackGround from './assets/Group7.png'
+// import BackGround from './assets/Group7.png'
 import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 
@@ -22,6 +22,7 @@ import Footer from './components/Footer'
 function Dashboard() {
   const { urls, loading, error, fetchUrls, search } = useUrls();
   const { handleShorten, successMessage, errorMessage } = useShortener(fetchUrls);
+  const [mode, setMode] = useState<'shorten' | 'qr'>('shorten');
   const { user } = useAuth();
   console.log(user)
 
@@ -51,8 +52,8 @@ function Dashboard() {
     >
       <Header />
       
-      <div className="py-8 px-4" style={{ 
-        backgroundImage: `url(${BackGround})`, 
+      <div className="py-8 px-4 bg-[#012945]" style={{ 
+        // backgroundImage: `url(${BackGround})`, 
         backgroundRepeat: "no-repeat", 
         backgroundSize: 'cover', 
         fontFamily: "Montserrat"
@@ -102,10 +103,10 @@ function Dashboard() {
               transition={{ delay: 0.1 }}
               className="col-span-1"
             >
-              <UrlForm onSubmit={handleShorten} />
+              <UrlForm onSubmit={handleShorten} mode={mode} setMode={setMode} />
             </motion.div>
 
-            
+            {mode == "shorten" && (          
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -129,7 +130,7 @@ function Dashboard() {
                   onRetry={fetchUrls} 
                 />
               </div>
-            </motion.div>
+            </motion.div>)}
           </div>
         </div>
         {/* <div className="h-[2rem] flex justify-center align-center text-white mt-[20px]">Powered by &nbsp;<Link to="https://skilvorax.com" className="font-bold">SkilvoraX</Link></div> */}

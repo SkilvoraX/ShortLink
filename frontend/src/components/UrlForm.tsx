@@ -2,16 +2,17 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { QRCodeGenerator } from './QrCodeGenerator';
 
-export const UrlForm = ({ onSubmit, loading = false }: {
+export const UrlForm = ({ onSubmit, mode, setMode, loading = false }: {
   onSubmit: (url: string, customCode?: string) => Promise<void>;
   loading?: boolean;
+  mode: 'shorten' | 'qr';
+  setMode: React.Dispatch<React.SetStateAction<'shorten' | 'qr'>>;
 }) => {
   const [url, setUrl] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [customCode, setCustomCode] = useState('');
   const [showCustomCode, setShowCustomCode] = useState(false);
-  const [mode, setMode] = useState<'shorten' | 'qr'>('shorten');
 
 
   const validateUrl = (url: string): boolean => {

@@ -48,8 +48,8 @@ const Login = () => {
 
   return (
     <div 
-      className="min-h-screen flex flex-col items-center justify-center p-4 bg-cover bg-center bg-no-repeat" 
-      style={{ backgroundImage: `url(${BackGround})` }}
+      className="min-h-screen flex flex-col items-center bg-[#012945] justify-center p-4 bg-cover bg-center bg-no-repeat" 
+      // style={{ backgroundImage: `url(${BackGround})` }}
     >
       <motion.div
         variants={containerVariants}
