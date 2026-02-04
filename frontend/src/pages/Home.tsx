@@ -8,6 +8,7 @@ import Image from "../assets/Layer_1.svg";
 import BackGround from "../assets/Group7.png";
 import Logo from "../assets/Link.svg";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -72,6 +73,7 @@ export default function Home() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
   return (
+    <>
     <div 
       className="min-h-screen" 
       style={{ 
@@ -289,7 +291,9 @@ export default function Home() {
         
       </motion.div>
 
-      <div className="h-[3rem] flex justify-center align-center text-white">Powered by &nbsp;<Link to="https://skilvorax.com" className="font-bold">SkilvoraX</Link></div>
+      {/* <div className="h-[3rem] flex justify-center align-center text-white">Powered by &nbsp;<Link to="https://skilvorax.com" className="font-bold">SkilvoraX</Link></div> */}
     </div>
+    <Footer />
+    </>
   );
 }

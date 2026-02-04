@@ -14,6 +14,7 @@ import { useShortener } from './hooks/useShortner'
 import { Navigate } from 'react-router-dom'
 import BackGround from './assets/Group7.png'
 import NotFound from './pages/NotFound'
+import Footer from './components/Footer'
 
 
 
@@ -131,8 +132,9 @@ function Dashboard() {
             </motion.div>
           </div>
         </div>
-        <div className="h-[2rem] flex justify-center align-center text-white mt-[20px]">Powered by &nbsp;<Link to="https://skilvorax.com" className="font-bold">SkilvoraX</Link></div>
+        {/* <div className="h-[2rem] flex justify-center align-center text-white mt-[20px]">Powered by &nbsp;<Link to="https://skilvorax.com" className="font-bold">SkilvoraX</Link></div> */}
       </div>
+      <Footer />
 
     </motion.div>
   );

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { QRCodeGenerator } from './QrCodeGenerator';
 
 export const UrlForm = ({ onSubmit, loading = false }: {
   onSubmit: (url: string, customCode?: string) => Promise<void>;
@@ -10,6 +11,8 @@ export const UrlForm = ({ onSubmit, loading = false }: {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [customCode, setCustomCode] = useState('');
   const [showCustomCode, setShowCustomCode] = useState(false);
+  const [mode, setMode] = useState<'shorten' | 'qr'>('shorten');
+
 
   const validateUrl = (url: string): boolean => {
     try {
@@ -78,11 +81,48 @@ export const UrlForm = ({ onSubmit, loading = false }: {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        Shorten Your URL
+        {mode === 'shorten' ? 'Shorten Your URL' : 'Generate QR Code'}
       </motion.h2>
+      <div className="flex justify-center mb-6 gap-2">
+        <motion.button
+          type="button"
+          onClick={() => setMode('shorten')}
+          className={`px-5 py-2 rounded-xl font-medium transition ${
+            mode === 'shorten'
+              ? 'bg-indigo-600 text-white'
+              : 'bg-white/80 text-indigo-600 hover:bg-indigo-100'
+          }`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Shorten URL
+        </motion.button>
 
+        <motion.button
+          type="button"
+          onClick={() => setMode('qr')}
+          className={`px-5 py-2 rounded-xl font-medium transition ${
+            mode === 'qr'
+              ? 'bg-indigo-600 text-white'
+              : 'bg-white/80 text-indigo-600 hover:bg-indigo-100'
+          }`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Generate QR Code
+        </motion.button>
+      </div>
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10" autoComplete='off'>
-        <div>
+        <AnimatePresence mode="wait">
+          {mode === 'shorten' && (
+            <motion.div
+              key="shorten"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div>
           <motion.label 
             htmlFor="url" 
             className="block text-sm font-medium text-white mb-2 ml-1"
@@ -193,9 +233,10 @@ export const UrlForm = ({ onSubmit, loading = false }: {
           transition={{ delay: 0.5 }}
           className="relative"
         >
+          {mode === 'shorten' && (
           <motion.button
             type="submit"
-            className={`w-full py-4 px-6 rounded-2xl text-white font-medium text-lg shadow-lg transition-all duration-300 ${
+            className={`w-full mt-4 py-4 px-6 rounded-2xl text-white font-medium text-lg shadow-lg transition-all duration-300 ${
               loading || isSubmitting 
                 ? 'bg-indigo-400 cursor-not-allowed' 
                 : 'bg-gradient-to-r from-[#012945] to-[#012945] hover:from-[#012945] hover:to-[#012945] hover:shadow-[10px] hover:shadow-[#000]'
@@ -227,9 +268,55 @@ export const UrlForm = ({ onSubmit, loading = false }: {
               </div>
             )}
           </motion.button>
-          
+        )}  
           <div className="absolute -bottom-2 inset-x-0 h-8 bg-indigo-500 opacity-20 blur-xl rounded-full"></div>
         </motion.div>
+            </motion.div>
+          )}
+
+          {mode === 'qr' && (
+            <motion.div
+              key="qr"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-6"
+            >
+              {/* QR INPUT */}
+              <label className="block text-sm font-medium text-white mb-2 ml-1">
+                Enter a link
+              </label>
+
+              <input
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="https://example.com"
+                className="w-full pl-4 pr-5 py-4 border-2 border-indigo-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-lg bg-white/90"
+              />
+              <span className='text-white text-sm'>{(url !== "") && !validateUrl(url)  && "Please enter a valid URL (include http:// or https://)"}</span>
+              {/* QR CODE PREVIEW */}
+              <AnimatePresence>
+                {url && validateUrl(url) && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow-inner flex justify-center"
+                  >
+                    <QRCodeGenerator url={url} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+
+
+        
       </form>
     </motion.div>
   );

@@ -1,11 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import BackGround from "../assets/Group7.svg";
+import BackGround from "../assets/Group7.png";
 import Logo from "../assets/Link.svg";
+import Footer from "../components/Footer";
 
  function NotFound() {
   return (
+    <>
     <div 
       className="min-h-screen flex flex-col" 
       style={{ 
@@ -95,6 +97,8 @@ import Logo from "../assets/Link.svg";
       
       <div className="h-[3rem]"></div>
     </div>
+    <Footer />
+    </>
   );
 }
 
