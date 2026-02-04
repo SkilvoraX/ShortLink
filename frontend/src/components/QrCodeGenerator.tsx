@@ -151,6 +151,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
           whileTap={{ scale: 0.95 }}
           className="text-gray-500 hover:text-gray-700"
           onClick={() => setExpanded(!expanded)}
+          type='button'
         >
           {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
         </motion.button>
@@ -215,6 +216,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800"
                     onClick={() => setShowLogoOptions(!showLogoOptions)}
+                    type='button'
                   >
                     <Upload size={16} />
                     <span>{showLogoOptions ? "Hide Options" : "Show Options"}</span>
@@ -242,6 +244,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => fileInputRef.current?.click()}
+                          type='button'
                           className="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-400 hover:text-blue-600 transition-all"
                         >
                           <div className="flex flex-col items-center gap-2">
@@ -261,6 +264,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                             whileTap={{ scale: 0.9 }}
                             onClick={removeLogo}
                             className="text-red-500 hover:text-red-700"
+                            type='button'
                           >
                             <X size={18} />
                           </motion.button>
@@ -317,6 +321,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={resetLogoPosition}
+                          type='button'
                           className="flex items-center justify-center gap-2 w-full py-2 px-4 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-50 transition-colors"
                         >
                           <RotateCcw size={16} />
@@ -334,6 +339,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    type='button'
                     className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800"
                     onClick={() => setShowColorOptions(!showColorOptions)}
                   >
@@ -390,6 +396,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={resetColors}
+                      type='button'
                       className="flex items-center justify-center gap-2 w-full py-2 px-4 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-50 transition-colors"
                     >
                       <RefreshCw size={16} />
@@ -406,6 +413,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                         key={index}
                         whileHover={{ y: -2, boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)" }}
                         whileTap={{ scale: 0.95 }}
+                        type='button'
                         className="flex flex-col items-center p-2 rounded-md border border-gray-200 hover:border-blue-300"
                         onClick={() => applyColorScheme(scheme.fg, scheme.bg)}
                       >
@@ -427,6 +435,7 @@ export const QRCodeGenerator = ({ url }: { url: string }) => {
                 whileHover={{ scale: 1.03, backgroundColor: '#1a56db' }}
                 whileTap={{ scale: 0.97 }}
                 onClick={downloadQRCode}
+                type='button'
                 className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition-all"
               >
                 <Download size={18} />
