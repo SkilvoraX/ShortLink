@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import { Eye, EyeOff, Mail, Lock, LogIn } from 'lucide-react'
-import BackGround from '../../assets/Group7.png'
+// import BackGround from '../../assets/Group7.png'
 
 
 const Login = () => {
