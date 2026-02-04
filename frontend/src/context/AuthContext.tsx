@@ -121,9 +121,8 @@ const googleAuth = async (name: string, email: string) => {
     }
 
     // 3. Now login with the generated password
-    const loginResponse = await axios.post(`${API_BASE_URL}/signin`, {
+    const loginResponse = await axios.post(`${API_BASE_URL}/google`, {
       email,
-      password,
     });
 
     const { user, accessToken, refreshToken } = loginResponse.data;
