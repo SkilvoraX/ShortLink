@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import BackGround from "../assets/Group7.png";
+// import BackGround from "../assets/Group7.png";
 import Logo from "../assets/Link.svg";
 import Footer from "../components/Footer";
 
