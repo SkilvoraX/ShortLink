@@ -30,7 +30,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={logout}
-            className="hidden md:flex items-center space-x-2 px-4 py-2 bg-[#002395] text-white rounded-lg hover:bg-red-600 transition-colors"
+            className="hidden md:flex items-center space-x-2 px-4 py-2 bg-[#012945] text-white rounded-lg hover:bg-[#C9F31D] hover:text-[#012945] transition-colors"
           >
             <LogOut className="w-4 h-4" />
             <span>Logout</span>
@@ -56,7 +56,7 @@ const Header = () => {
             </div>
             <button
               onClick={logout}
-              className="w-full flex items-center space-x-2 px-4 py-2 bg-[#002395] text-white rounded-lg hover:bg-red-600 transition-colors"
+              className="w-full flex items-center space-x-2 px-4 py-2 bg-[#012945] text-white rounded-lg hover:bg-[#C9F31D] transition-colors"
             >
               <LogOut className="w-4 h-2" />
               <span className="text-[18px]">Logout</span>

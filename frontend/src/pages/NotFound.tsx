@@ -9,9 +9,8 @@ import Footer from "../components/Footer";
   return (
     <>
     <div 
-      className="min-h-screen flex flex-col" 
-      style={{ 
-        backgroundImage: `url(${BackGround})`, 
+      className="min-h-screen flex flex-col bg-[#012945]" 
+      style={{
         backgroundRepeat: "no-repeat", 
         backgroundSize: 'cover', 
         fontFamily: "Montserrat"
@@ -23,13 +22,13 @@ import Footer from "../components/Footer";
           <Link to='/home'>
             <div className='flex items-center'>
               <img src={Logo} alt="ShortLink Logo" />
-              <h1 className="text-2xl font-bold text-[#002395]">ShortLink</h1>
+              <h1 className="text-2xl font-bold text-[#012945]">ShortLink</h1>
             </div>
           </Link>
 
           <div className="flex gap-4">
             <motion.button
-              className="border-2 border-[#002395] px-6 py-2 rounded-2xl text-[#002395] text-base hover:bg-[#002395] hover:text-white transition-colors font-medium"
+              className="border-2 border-[#012945] px-6 py-2 rounded-2xl text-[#012945] text-base hover:bg-[#012945] hover:text-white transition-colors font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -83,7 +82,7 @@ import Footer from "../components/Footer";
           >
             
             <motion.button
-              className="border-2 border-white text-white hover:bg-white hover:text-[#002395] px-8 py-3 rounded-2xl text-lg font-medium transition-colors"
+              className="border-2 border-white text-white hover:bg-white hover:text-[#012945] px-8 py-3 rounded-2xl text-lg font-medium transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.history.back()}

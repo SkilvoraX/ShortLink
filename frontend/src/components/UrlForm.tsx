@@ -84,14 +84,14 @@ export const UrlForm = ({ onSubmit, mode, setMode, loading = false }: {
       >
         {mode === 'shorten' ? 'Shorten Your URL' : 'Generate QR Code'}
       </motion.h2>
-      <div className="flex justify-center mb-6 gap-2">
+      <div className="flex justify-center md:text-[16px] text-sm mb-6 gap-2">
         <motion.button
           type="button"
           onClick={() => setMode('shorten')}
           className={`px-5 py-2 rounded-xl font-medium transition ${
             mode === 'shorten'
-              ? 'bg-indigo-600 text-white'
-              : 'bg-white/80 text-indigo-600 hover:bg-indigo-100'
+              ? 'bg-[#012945] text-white'
+              : 'bg-white/80 text-[#012945] hover:bg-indigo-100'
           }`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -102,10 +102,10 @@ export const UrlForm = ({ onSubmit, mode, setMode, loading = false }: {
         <motion.button
           type="button"
           onClick={() => setMode('qr')}
-          className={`px-5 py-2 rounded-xl font-medium transition ${
+          className={`px-5 py-2 rounded-xl font-medium md:text-[16px] text-sm transition ${
             mode === 'qr'
-              ? 'bg-indigo-600 text-white'
-              : 'bg-white/80 text-indigo-600 hover:bg-indigo-100'
+              ? 'bg-[#012945] text-white'
+              : 'bg-white/80 text-[#012945] hover:bg-indigo-100'
           }`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

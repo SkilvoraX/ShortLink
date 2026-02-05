@@ -94,14 +94,14 @@ export default function Home() {
 
         <div className="hidden lg:flex gap-9">
           <motion.button
-            className="border-2 border-white px-6 p-2 rounded-2xl text-[#002395] text-base hover:bg-white/10 transition-colors font-medium"
+            className="border-2 border-white px-6 p-2 rounded-2xl text-white text-base bg-[#012945] transition-colors font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Link to='/signup'>Sign Up</Link>
           </motion.button>
           <motion.button
-            className="text-[#002395] px-6 p-2 rounded-2xl text-base hover:shadow-lg transition-shadow font-medium"
+            className="text-[#002395] px-6 p-2 rounded-2xl text-base bg-[#C9F31D] transition-shadow font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
